@@ -9,11 +9,19 @@ import org.junit.Test
 class ReactiveXTest {
 
     @Test
+    fun stream() {
+        val list = listOf(1, 2, 3, 4, 5, 6)
+            .map { it * 10 }
+
+        println(list)
+    }
+
+    @Test
     fun firstRxFlow() {
         println("--------------------------------------------")
 
         Observable.just("Hello Rx")
-            //.map { item -> item + "!!!" }
+            .map { item -> item + "!!!" }
             .subscribe(object : Observer<String> {
                 override fun onSubscribe(d: Disposable) {
                     println("onSubscribe")
@@ -75,6 +83,6 @@ class ReactiveXTest {
 
     private fun callApi(): Observable<String> {
         return Observable.just("result")
-            //.observeOn(Schedulers.io())
+        //.observeOn(Schedulers.io())
     }
 }
