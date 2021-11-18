@@ -21,7 +21,7 @@ class ReactiveXTest {
         println("--------------------------------------------")
 
         Observable.just("Hello Rx")
-            .map { item -> item + "!!!" }
+            .map { item -> "$item!!!" }
             .subscribe(object : Observer<String> {
                 override fun onSubscribe(d: Disposable) {
                     println("onSubscribe")
